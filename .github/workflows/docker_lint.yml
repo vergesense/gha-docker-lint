@@ -6,7 +6,7 @@ on:
     inputs:
       dockerfile-path:
         description: 'relative path to dockerfile'
-        required: true
+        required: false
         type: string
         default: './Dockerfile'
 
