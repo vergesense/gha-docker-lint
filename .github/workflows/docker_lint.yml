@@ -8,12 +8,12 @@ on:
         description: 'relative path to dockerfile'
         required: true
         type: string
+        default: './Dockerfile'
 
 jobs:
   hadolint:
     runs-on: ubuntu-latest
+    container: hadolint/hadolint:v2.7.0-alpine
     steps:
       - uses: actions/checkout@v2
-      - uses: hadolint/hadolint-action@v2.0.0
-        with:
-          dockerfile: ${{ inputs.dockerfile-path }}
+      - run: hadolint ${{ inputs.dockerfile-path }}
